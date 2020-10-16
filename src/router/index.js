@@ -33,5 +33,15 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+// 全局前置导航守卫(拦截未登录的用户,所有的路由跳转都经过导航守卫)
+router.beforeEach((to, from, next) => {
+  const authrityPage = ['/user']; //需求加权限token的页面
+  const token = localStorage.getItem('token');
+  if (authrityPage.includes(to.path) && !token) {
+    router.push('/login');
+  } else {
+    next();
+  }
+});
 
 export default router;

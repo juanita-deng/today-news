@@ -34,5 +34,8 @@ export default {
   .title {
     font-weight: 700;
   }
+  .iconfont {
+    font-size: 32px;
+  }
 }
 </style>

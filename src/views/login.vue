@@ -38,8 +38,14 @@ export default {
       };
       const res = await this.$axios.post('/login', parm);
       console.log('登陆==>res', res);
-      if (res.data.statusCode === 200) {
+      const { statusCode, message, data } = res.data;
+      if (statusCode === 200) {
+        this.$toast.success(message);
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user_id', data.user.id);
         this.$router.push('/user');
+      } else {
+        this.$toast.fail(message);
       }
     },
   },
