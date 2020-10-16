@@ -24,7 +24,6 @@ export default {
     },
     value: {
       type: String,
-      default: '',
       required: true,
     },
     rule: {
@@ -38,11 +37,17 @@ export default {
   },
   methods: {
     inputFn(e) {
-      this.$emit('input', e.target.value);
-      if (!this.rule.test(this.value)) {
-        this.status = 'fail';
-      } else {
+      const val = e.target.value;
+      this.$emit('input', val);
+      this.validate(val);
+    },
+    validate(val) {
+      if (this.rule.test(val)) {
         this.status = 'success';
+        return true;
+      } else {
+        this.status = 'fail';
+        return false;
       }
     },
   },

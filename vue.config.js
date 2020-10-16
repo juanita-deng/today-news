@@ -6,6 +6,15 @@ module.exports = {
   devServer: {
     port: 8888,
     open: true,
+    //配置反向代理(跨域问题)
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000', //代理路径
+        pathRewrite: { '^/api': '' }, //路径重写
+        secure: true, //匹配https也能通过访问
+        changeOrigin: true, //修改请求头host信息
+      },
+    },
   },
   //路径@配置
   chainWebpack: (config) => {
