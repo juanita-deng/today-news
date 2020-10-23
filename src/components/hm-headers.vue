@@ -3,7 +3,7 @@
     <div class="left" @click="$router.go(-1)">
       <span class="iconfont iconjiantou2"></span>
     </div>
-    <div class="titile">
+    <div class="title">
       <slot />
     </div>
     <div class="right"></div>
