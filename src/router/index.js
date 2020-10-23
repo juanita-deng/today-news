@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 import login from '../views/login.vue';
 import register from '../views/register.vue';
 import user from '../views/user.vue';
-
+import edit from '../views/edit.vue';
 const routes = [
   {
     path: '/',
@@ -27,6 +27,11 @@ const routes = [
     name: 'user',
     component: user,
   },
+  {
+    path: '/edit',
+    name: 'edit',
+    component: edit,
+  },
 ];
 const router = new VueRouter({
   mode: 'history',
@@ -35,7 +40,7 @@ const router = new VueRouter({
 });
 // 全局前置导航守卫(拦截未登录的用户,所有的路由跳转都经过导航守卫)
 router.beforeEach((to, from, next) => {
-  const authrityPage = ['/user']; //需求加权限token的页面
+  const authrityPage = ['/user', '/edit']; //需求加权限token的页面
   const token = localStorage.getItem('token');
   if (authrityPage.includes(to.path) && !token) {
     router.push('/login');

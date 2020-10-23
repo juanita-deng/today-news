@@ -67,6 +67,7 @@ export default {
     border-bottom: 1px solid #cccccc;
     appearance: none;
     text-align: left;
+    color: #666;
     font-size: 32px;
     &.success {
       border-color: green;
