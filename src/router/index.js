@@ -7,6 +7,9 @@ import login from '../views/login.vue';
 import register from '../views/register.vue';
 import user from '../views/user.vue';
 import edit from '../views/edit.vue';
+import myAttention from '../views/myAttention.vue';
+import myFollow from '../views/myFollow.vue';
+import myCollection from '../views/myCollection.vue';
 const routes = [
   {
     path: '/',
@@ -31,6 +34,21 @@ const routes = [
     path: '/edit',
     name: 'edit',
     component: edit,
+  },
+  {
+    path: '/myFollow',
+    name: 'myFollow',
+    component: myFollow,
+  },
+  {
+    path: '/myCollection',
+    name: 'myCollection',
+    component: myCollection,
+  },
+  {
+    path: '/myAttention',
+    name: 'myAttention',
+    component: myAttention,
   },
 ];
 const router = new VueRouter({

@@ -17,9 +17,9 @@
         <span class="iconfont iconjiantou1" />
       </div>
     </div>
-    <HmNavbar title="我的关注" content="关注的用户"></HmNavbar>
-    <HmNavbar title="我的跟帖" content="跟帖/回复"></HmNavbar>
-    <HmNavbar title="我的收藏" content="文章/视频"></HmNavbar>
+    <HmNavbar title="我的关注" @click="$router.push({ path: '/myAttention' })" content="关注的用户"></HmNavbar>
+    <HmNavbar title="我的跟帖" @click="$router.push({ path: '/myFollow' })" content="跟帖/回复"></HmNavbar>
+    <HmNavbar title="我的收藏" @click="$router.push({ path: '/myCollection' })" content="文章/视频"></HmNavbar>
     <HmNavbar title="设置" @click="$router.push({ path: '/edit' })"></HmNavbar>
     <HmNavbar title="退出" @click="layOut"></HmNavbar>
   </div>
